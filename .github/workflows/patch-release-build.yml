@@ -65,7 +65,7 @@ jobs:
               # Trim whitespaces and cherrypick
               echo $word | sed 's/ *$//g' | sed 's/^ *//g' | git cherry-pick --stdin
           done
-      - uses: burrunan/gradle-cache-action@v1.5
+      - uses: burrunan/gradle-cache-action@v1.10
         with:
           job-id: jdk11
           remote-build-cache-proxy-enabled: false
@@ -73,7 +73,7 @@ jobs:
           properties: |
             enable.docker.tests=true
       - name: Publish artifacts
-        uses: burrunan/gradle-cache-action@v1.5
+        uses: burrunan/gradle-cache-action@v1.10
         with:
           job-id: jdk11
           remote-build-cache-proxy-enabled: false
@@ -90,7 +90,7 @@ jobs:
         uses: actions/checkout@v2
         with:
            submodules: true
-      - uses: burrunan/gradle-cache-action@v1.5
+      - uses: burrunan/gradle-cache-action@v1.10
         with:
           job-id: jdk11
           remote-build-cache-proxy-enabled: false
